@@ -6,13 +6,10 @@ const PostCreate = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await axios
-      .post("http://localhost:4000/posts", {
-        title,
-      })
-      .then(() => {
-        setTitle("");
-      });
+    await axios.post("http://localhost:4000/posts", {
+      title,
+    });
+    setTitle("");
   };
 
   return (
@@ -22,7 +19,7 @@ const PostCreate = () => {
           <label>Title</label>
           <input
             value={title}
-            onChange={(e) => setTitle(e.value)}
+            onChange={(e) => setTitle(e.target.value)}
             className="form-control"
           />
         </div>
